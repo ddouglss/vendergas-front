@@ -3,7 +3,7 @@
   <h1>💨 Vender Gás – Sistema de Gestão de Distribuição</h1>
   <p>Sistema completo de gestão para distribuidoras de gás, com controle de usuários, empresas, clientes, produtos e pedidos.</p>
   <p>Desenvolvido com <strong>React 19 + Vite</strong>, totalmente responsivo, com autenticação JWT e controle de permissões.</p>
-  <p><strong>Deploy:</strong> <a href="https://vendergas.vercel.app" target="_blank">https://vendergas.vercel.app</a></p>
+  <p><strong>Deploy:</strong> <a href="https://vendergas-front-qte3pauis-ddouglss-projects.vercel.app/login" target="_blank">https://vendergas-front-qte3pauis-ddouglss-projects.vercel.app/login</a></p>
 
 <h2>🚀 Funcionalidades</h2>
   <ul>
