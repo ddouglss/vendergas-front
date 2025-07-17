@@ -26,7 +26,6 @@ export default function Register() {
     const navigateToLogin = () => {
         navigate('/login');
     };
-
     return (
         <div className="register-container">
             <form onSubmit={handleSubmit} className="register-form">

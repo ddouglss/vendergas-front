@@ -34,7 +34,6 @@ export default function Login() {
             console.error('Erro de login:', error.response ? error.response.data : error.message);
         }
     };
-
     return (
         <div className="login-container">
             <form onSubmit={handleSubmit} className="login-form">

@@ -61,7 +61,7 @@ export default function ClienteForm({ clienteEditado, onSuccess }) {
                 setMensagem('Cliente cadastrado com sucesso!');
             }
 
-            onSuccess(); // Atualiza a lista e fecha o formulário
+            onSuccess();
         } catch (err) {
             console.error('Erro ao salvar cliente:', err.response?.data || err.message);
             alert('Erro ao salvar cliente');

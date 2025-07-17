@@ -26,7 +26,6 @@ export default function ClientesPage() {
 
     useEffect(() => {
         if (user?.role === 'admin' || user?.role === 'superadmin') {
-            // Admins podem gerenciar clientes de múltiplas empresas
             axios.get('https://vendergas.up.railway.app/api/empresas', {
                 headers: {
                     Authorization: `Bearer ${user.token}`
@@ -34,14 +33,12 @@ export default function ClientesPage() {
             }).then(res => {
                 const empresas = res.data.data;
                 if (empresas.length > 0) {
-                    // Carrega clientes da primeira empresa como padrão
                     carregarClientes(empresas[0]._id);
                 }
             }).catch(err => {
                 console.error('Erro ao carregar empresas para admin:', err);
             });
         } else if (user?.empresaId) {
-            // Usuários comuns
             carregarClientes(user.empresaId);
         }
     }, [user]);
