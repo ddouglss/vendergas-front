@@ -1,0 +1,17 @@
+.card-metric {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    padding: 20px;
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+}
+.card-metric h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.card-metric p {
+    font-size: 22px;
+    font-weight: bold;
+}

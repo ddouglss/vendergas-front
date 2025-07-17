@@ -1,0 +1,461 @@
+:root {
+    --primary-color: #ffffff;
+    --primary-light: #4c4a4a;
+    --accent-success: #28a745;
+    --accent-success-hover: #218838;
+    --accent-danger: #dc3545;
+    --text-primary: rgba(0, 0, 0, 0.97);
+    --text-secondary: #adb5bd;
+    --bg-main: #212529;
+    --bg-card: #2c313a;
+    --bg-item-list: #343a40;
+    --bg-item-hover: #3a414b;
+    --bg-input: #343a40;
+    --border-color-subtle: #495057;
+    --border-color-medium: #5a6268;
+    --shadow-subtle: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.3);
+    --focus-glow: rgba(0, 123, 255, 0.3);
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+}
+
+.empresas-container {
+    padding: 20px;
+    min-height: 100vh;
+    color: #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.empresas-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.empresas-header h1 {
+    color: rgba(11, 11, 11, 0.97);
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #222c3c;
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 600;
+    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+    min-width: 300px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+    max-height: 0;
+    opacity: 0;
+    padding: 0 30px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.form-card.expanded {
+    max-height: 500px;
+    opacity: 1;
+    padding: 20px;
+    margin-bottom: 60px;
+    margin-top: -25px;
+}
+
+.empresa-form-container {
+    padding: 0;
+    margin: 0;
+    background: none;
+    box-shadow: none;
+}
+
+.empresa-form-container h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.empresa-form .form-group {
+    margin-bottom: 20px;
+}
+
+.empresa-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1em;
+}
+
+.empresa-form input[type="text"] {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    font-size: 1.05em;
+    box-sizing: border-box;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.empresa-form input[type="text"]::placeholder {
+    color: var(--text-secondary);
+}
+
+.empresa-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--focus-glow);
+}
+
+.btn-submit {
+    background-color: var(--accent-success);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 700;
+    width: 100%;
+    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-submit:hover:not(:disabled) {
+    background-color: var(--accent-success-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-submit:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.error-message {
+    color: var(--accent-danger);
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: 600;
+    background-color: rgba(220, 53, 69, 0.15);
+    padding: 12px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--accent-danger);
+}
+
+.success-message {
+    color: var(--accent-success);
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: 600;
+    background-color: rgba(40, 167, 69, 0.15);
+    padding: 12px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--accent-success);
+}
+
+.empresas-list-container {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+    margin-top: -100px;
+    max-width: 700px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.empresas-list-container h2 {
+    color: var(--text-primary);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.empresas-list {
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    list-style: none;
+    padding: 15px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.empresa-item {
+    background-color: var(--bg-item-list);
+    border-radius: var(--border-radius-sm);
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px var(--shadow-subtle);
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+    border: 1px solid var(--border-color-subtle);
+    width: 100%;
+}
+
+.empresa-item:hover {
+    background-color: var(--bg-item-hover);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+.empresa-item-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2em;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.empresa-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.empresa-info h3 {
+    color: var(--text-primary);
+    font-size: 1.15em;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empresa-info p {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empresa-info p strong {
+    color: var(--text-primary);
+}
+
+.empresa-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn-action {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--border-radius-sm);
+    padding: 10px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-action:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-action.delete {
+    color: var(--accent-danger);
+}
+
+.btn-action.delete:hover {
+    background-color: var(--accent-danger);
+    color: white;
+    border-color: var(--accent-danger);
+}
+
+.DropdownMenuContent {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    padding: 8px;
+    z-index: 1000;
+    min-width: 180px;
+    border: 1px solid var(--border-color-subtle);
+}
+
+.DropdownMenuItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: var(--text-primary);
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    outline: none;
+}
+
+.DropdownMenuItem:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.DropdownMenuItem.delete-option:hover {
+    background-color: var(--accent-danger);
+    color: white;
+}
+
+.empresas-container .status-message {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.empresas-container .status-message.error {
+    color: var(--accent-danger);
+    font-weight: 700;
+}
+
+.overlay-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.8em;
+    z-index: 9999;
+}
+
+@media (max-width: 768px) {
+    .empresas-container {
+        padding: 20px;
+        gap: 20px;
+    }
+    .empresas-header {
+        align-items: center;
+        gap: 15px;
+    }
+    .empresas-header h1 {
+        font-size: 2em;
+    }
+    .btn-primary {
+        width: 100%;
+        max-width: 300px;
+    }
+    .form-card.expanded {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .empresa-form-container h2 {
+        font-size: 1.8em;
+    }
+    .empresas-list-container {
+        padding: 20px;
+        max-width: 100%;
+    }
+    .empresa-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    .empresa-item-avatar {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .empresa-info {
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 100%;
+    }
+    .empresa-actions {
+        padding-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .empresas-container {
+        padding: 15px;
+    }
+    .empresas-header h1 {
+        font-size: 1.6em;
+    }
+    .empresa-info h3 {
+        font-size: 1.1em;
+    }
+    .empresa-info p {
+        font-size: 0.85em;
+    }
+    .empresa-item-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+    .btn-action {
+        padding: 8px 10px;
+    }
+}

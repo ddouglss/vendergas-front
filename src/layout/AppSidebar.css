@@ -1,0 +1,278 @@
+:root {
+    --sidebar-bg: #222c3c;
+    --sidebar-text: #e0e0e0;
+    --sidebar-active-bg: #1a222e;
+    --sidebar-active-color: var(--primary-color);
+    --sidebar-hover-bg: #2a3648;
+    --sidebar-border: rgba(255, 255, 255, 0.1);
+}
+
+.app-sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width var(--transition-speed);
+    z-index: 100;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.app-sidebar.closed {
+    width: 60px;
+}
+
+.sidebar-header {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--sidebar-border);
+    flex-shrink: 0;
+}
+
+.sidebar-logo {
+    color: white;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 0;
+    opacity: 1;
+    transition: opacity var(--transition-speed);
+}
+
+.app-sidebar.closed .sidebar-logo {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    padding-top: 15px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav a,
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    border-radius: var(--border-radius-sm);
+    margin: 0 10px;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav .nav-link:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: white;
+}
+
+.sidebar-nav a.active,
+.sidebar-nav .nav-link.active {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-color);
+    font-weight: 600;
+}
+
+.sidebar-nav a svg,
+.sidebar-nav .nav-link svg {
+    margin-right: 15px;
+    min-width: 20px;
+}
+
+.app-sidebar.closed .sidebar-nav span,
+.app-sidebar.closed .sidebar-nav .ml-auto {
+    display: none;
+}
+
+.app-sidebar.closed .sidebar-nav a,
+.app-sidebar.closed .sidebar-nav .nav-link {
+    justify-content: center;
+    padding: 12px 0;
+    margin: 0;
+}
+
+
+.sidebar-nav .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 5px 30px;
+    border-left: 2px solid var(--sidebar-border);
+}
+
+.sidebar-nav .submenu li {
+    margin-bottom: 0;
+}
+
+.sidebar-nav .submenu a {
+    padding: 8px 20px;
+    font-size: 0.9em;
+    color: var(--sidebar-text);
+}
+
+.sidebar-nav .submenu a:hover {
+    background-color: var(--sidebar-hover-bg);
+}
+
+.sidebar-nav .submenu a.active {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-color);
+}
+
+.sidebar-footer {
+    border-top: 1px solid var(--sidebar-border);
+    padding: 15px 10px 10px 10px;
+    text-align: center;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-profile-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--sidebar-hover-bg);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    position: relative;
+}
+
+.user-profile-widget:hover {
+    background-color: var(--sidebar-active-bg);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1em;
+    flex-shrink: 0;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.95em;
+    line-height: 1.2;
+}
+
+.user-email {
+    color: var(--text-muted);
+    font-size: 0.8em;
+    line-height: 1.2;
+}
+
+.user-options-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5em;
+    padding: 5px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.user-options-btn:hover {
+    color: var(--primary-color);
+}
+
+.user-dropdown-content {
+    background-color: var(--bg-dark);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    z-index: 1001;
+    min-width: 150px;
+}
+
+.user-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: var(--text-light);
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    outline: none;
+}
+
+.user-dropdown-item:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--primary-color);
+}
+
+.toggle-sidebar-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 15px;
+    transition: background-color var(--transition-speed);
+}
+
+.toggle-sidebar-btn:hover {
+    background-color: var(--accent-success);
+}
+
+.app-sidebar.closed .sidebar-footer {
+    padding: 10px 5px;
+}
+.app-sidebar.closed .user-profile-widget {
+    justify-content: center;
+    padding: 5px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.app-sidebar.closed .user-profile-widget .user-details,
+.app-sidebar.closed .user-profile-widget .user-options-btn {
+    display: none;
+}
