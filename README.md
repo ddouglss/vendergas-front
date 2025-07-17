@@ -1,6 +1,4 @@
-<title>Vender Gás – Sistema de Gestão</title>
- 
-<body>
+
 
   <h1>💨 Vender Gás – Sistema de Gestão de Distribuição</h1>
   <p>Sistema completo de gestão para distribuidoras de gás, com controle de usuários, empresas, clientes, produtos e pedidos.</p>
@@ -112,7 +110,7 @@ npm run lint      # Lint do projeto
 <h2>📄 Licença</h2>
   <p>Distribuído sob a licença MIT.</p>
 
-  <p><em>Desenvolvido com 💙 por Seu Nome ou Equipe</em></p>
+  <p><em>Desenvolvido por Douglas Souza </em> 16-07-2025</p>
 
 </body>
 
